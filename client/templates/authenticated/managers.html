@@ -1,0 +1,6 @@
+<template name="managers">
+  {{#if isInRole 'admin,manager'}}
+    <h3>Instructors</h3>
+  {{/if}}
+  {{> loading}}
+</template>

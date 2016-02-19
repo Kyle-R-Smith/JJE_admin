@@ -1,0 +1,25 @@
+/*
+ * Full Screen Background Images
+ */
+.login-bg {
+  background-image: url("login-bg-sm3.jpg");
+  height: 900px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 15px 15px white inset;
+
+}
+
+.landing-bg {
+  background-image: url("landing-bg-sm2.jpg");
+  height: 1080px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 15px 15px white inset;
+}
+
+.top-spacer {
+  margin-top: 70px;
+}

@@ -1,0 +1,22 @@
+<template name="landing">
+	<div class="col-lg-12 landing-bg">
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset-3">
+				<div class="jumbotron top-spacer">
+					<img src="logo-1.png" class="center-block">
+	  				<h1>Welcome to Jiu Jitsu Elite.</h1>
+	            	<p class="lead">We provide the most comprehensive video resource for Brazilian Jiu Jitsu, packaged with a complete class and instruction management solution.</p>
+	            	<hr>
+	            	<span>
+	            		<p class="text-center">Current Users:</p>
+	            		<a class="btn btn-lg btn-default text-center center-block {{currentRoute 'login'}}" href="{{pathFor 'login'}}"><i class="fa fa-sign-in"></i> Log In</a>
+	            		<br>
+	            		<p class="text-center">New Users:</p>       		
+	            		<a class="btn btn-lg btn-default text-center center-block {{currentRoute 'login'}}" href="{{pathFor 'login'}}"><i class="fa fa-user-plus"></i> Sign Up</a>
+	        		</span>
+	        	</div>
+	    	</div>
+	    </div>
+	</div>
+          
+</template>
