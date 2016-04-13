@@ -43,3 +43,10 @@ authenticatedRoutes.route( '/employees', {
     BlazeLayout.render( 'default', { yield: 'employees' } );
   }
 });
+
+authenticatedRoutes.route( '/checkout', {
+  name: 'checkout',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'checkout' } );
+  }
+});
