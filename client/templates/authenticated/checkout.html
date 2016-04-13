@@ -1,6 +1,31 @@
 <template name="checkout">
-  <h3>Buy a $50 gift card</h3>
-  <form>
-    <input type="submit" value="Submit">
-  </form>
+  <h3>Buy a Subscription</h3>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <img width="150" src="https://tmc-post-content.s3.amazonaws.com/ghostbusters-logo.png" alt="Ghostbusters">
+      <h4 class="page-header">Buy a subscription now!</h4>
+      {{#unless processing}}
+        <p class="alert alert-info">We offer various monthly subscriptions options:</p>
+
+        <ul class="list-group price-list">
+          <li class="list-group-item clearfix">
+            <p class="pull-left"><strong>$20</strong> &mdash; Access to academy content</p>
+            <a href="#" data-service="full-torso-apparition" class="btn btn-success pull-right">Buy Now</a>
+          </li>
+          <li class="list-group-item clearfix">
+            <p class="pull-left"><strong>$10</strong> &mdash; Access to instructor content</p>
+            <a href="#" data-service="free-floating-repeater" class="btn btn-success pull-right">Buy Now</a>
+          </li>
+          <li class="list-group-item clearfix">
+            <p class="pull-left"><strong>$5</strong> &mdash; Access to public content</p>
+            <a href="#" data-service="full-roaming-vapor" class="btn btn-success pull-right">Buy Now</a>
+          </li>
+        </ul>
+
+        <p class="alert alert-warning">To demo, use any email address along with the card number <strong>4242 4242 4242 4242</strong>, any <em>future</em> expiration date, and any 3 digit security code (e.g 555)</p>
+      {{else}}
+        <p class="alert alert-warning"><i class="fa fa-refresh fa-spin"></i> Processing payment...</p>
+      {{/unless}}
+    </div>
+  </div>
 </template>

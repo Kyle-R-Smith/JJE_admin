@@ -1,13 +1,16 @@
 Meteor.methods({
-  'chargeCard': function(stripeToken) {
-    var Stripe = StripeAPI('sk_test_wzVlkTYLZFCALxtZFUK9bl3E');
-
-    Stripe.charges.create({
-      amount: 1000,
-      currency: 'usd',
-      source: stripeToken
-    }, function(err, charge) {
-      console.log(err, charge);
+  processPayment( charge ) {
+    check( charge, {
+      amount: Number,
+      currency: String,
+      source: String,
+      description: String,
+      receipt_email: String
     });
+
+    let handleCharge = Meteor.wrapAsync( Stripe.charges.create, Stripe.charges ),
+        payment      = handleCharge( charge );
+
+    return payment;
   }
 });
