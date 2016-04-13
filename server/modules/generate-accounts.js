@@ -1,17 +1,35 @@
 let administrators = [
   {
-    name: { first: 'Adam', last: 'Whitlock' },
-    email: 'admin@admin.com',
+    name: { first: 'Test', last: 'Admin' },
+    email: 'admin@jje.com',
+    password: 'password'
+  }
+];
+
+let managers = [
+  {
+    name: { first: 'Test', last: 'Instructor' },
+    email: 'instructor@jje.com',
+    password: 'password'
+  }
+];
+
+let users = [
+  {
+    name: { first: 'Test', last: 'Individual' },
+    email: 'individual@jje.com',
     password: 'password'
   }
 ];
 
 let generateAccounts = () => {
   let fakeUserCount = 5,
-      usersExist    = _checkIfAccountsExist( administrators.length + fakeUserCount );
+      usersExist    = _checkIfAccountsExist( administrators.length + managers.length + users.length + fakeUserCount );
 
   if ( !usersExist ) {
     _createUsers( administrators );
+    _createUsers( managers );
+    _createUsers( users );
     _createUsers( _generateFakeUsers( fakeUserCount ) );
   }
 };
@@ -28,10 +46,13 @@ let _createUsers = ( users ) => {
 
     if ( !userExists ) {
       let userId  = _createUser( user ),
-          isAdmin = _checkIfAdmin( user.email );
+          isAdmin = _checkIfAdmin( user.email ),
+          isManager = _checkIfManager( user.email );
 
       if ( isAdmin ) {
         Roles.setUserRoles( userId, 'admin' );
+      } else if ( isManager ) {
+        Roles.setUserRoles( userId, 'manager' );
       } else {
         Roles.setUserRoles( userId, 'employee' );
       }
@@ -58,6 +79,12 @@ let _createUser = ( user ) => {
 let _checkIfAdmin = ( email ) => {
   return _.find( administrators, ( admin ) => {
     return admin.email === email;
+  });
+};  
+
+let _checkIfManager = ( email ) => {
+  return _.find( managers, ( manager ) => {
+    return manager.email === email;
   });
 };
 
