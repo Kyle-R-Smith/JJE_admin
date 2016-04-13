@@ -44,6 +44,13 @@ authenticatedRoutes.route( '/employees', {
   }
 });
 
+authenticatedRoutes.route( '/profile', {
+  name: 'profile',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'profile' } );
+  }
+});
+
 authenticatedRoutes.route( '/checkout', {
   name: 'checkout',
   action() {
