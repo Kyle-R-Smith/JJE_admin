@@ -1,3 +1,19 @@
 <template name="profile">
-
+  <h3>Your Profile</h3>
+  <h5>Personal and Contact Info</h5>
+  <p><b>First name: </b></p><p>Fred</p>
+  <p><b>Last name: </b></p><p>Johnson</p>
+  <p><b>Birthday: </b></p><p>April 30</p>
+  <p><b>Email: </b></p><p>JJE@jje.com</p>
+  <p><b>Address: </b></p><p>123 Main St, Fort Collins, CO 80526</p>
+  <p><b>Member Type: </b></p><p>Individual</p>
+  {{#if isInRole 'admin'}}
+    <h3>Just an admin</h3>
+  {{/if}}
+  {{#if isInRole 'manager'}}
+    <h3>My Students</h3>
+  {{/if}}
+  {{#if isInRole 'employee'}}
+    <h3>My Instructors</h3>
+  {{/if}}
 </template>
